@@ -42,23 +42,9 @@ public class EmployeeController {
 
 
     @GetMapping
-    public ResponseEntity<?> listAllEmployees(Principal principal) {
+    public ResponseEntity<?> listAllEmployees() {
         System.out.println("Received employee list request");
-        String name = principal.getName();
-        System.out.println("Principal name = " + name);
-        User user = userRepo.findByUsername(name).get();
-        Role role = user.getRole();
-        if (role == Role.SUPER_HR) {
-            return ResponseEntity.ok(employeeService.listAllEmployees());
-        } else {
-            return ResponseEntity.status(403).build();
-        }
-    }
-
-    @GetMapping("/basic-details")
-    public ResponseEntity<?> listAllEmployeesBasicDetails() {
-        System.out.println("Received employee list request");
-        return ResponseEntity.ok(employeeService.listAllEmployeesBasicDetails());
+        return ResponseEntity.ok(employeeService.listAllEmployees());
     }
 
     @GetMapping("/{id}")
