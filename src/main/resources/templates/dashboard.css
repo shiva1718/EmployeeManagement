@@ -60,19 +60,23 @@ html {
     color: #5a73d8;
 }
 
-/* Dashboard Section */
+/* Dashboard Section with Background Image */
 .dashboard-section {
     padding: 100px 20px; /* Extra padding at the top to account for the fixed header */
-    background-color: #f7f9fc;
+    background-image: url('bgimg.avif'); /* Same background image as in the homepage */
+    background-size: cover; /* Ensure the background image covers the entire section */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Makes the background stay fixed during scroll */
     min-height: 100vh;
     overflow-y: auto;
     text-align: center;
+    color: #0a1f44; /* Dark blue text color */
 }
 
 .dashboard-section h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #0a1f44;
+    color: #0a1f44; /* Dark blue heading color */
 }
 
 .employee-table {
@@ -84,7 +88,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for table background */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -95,26 +99,60 @@ th, td {
 }
 
 th {
-    background-color: #0a1f44;
+    background-color: #0a1f44; /* Dark blue for table header */
     color: white;
 }
 
 td {
-    background-color: #f7f9fc;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for table cells */
+    color: #0a1f44; /* Dark blue text for table content */
 }
 
+/* Action Buttons */
 .action-btn {
-    background-color: #0a1f44;
+    background-color: #0a1f44; /* Dark blue base color */
     color: #ffffff;
     padding: 8px 12px;
     border-radius: 5px;
     text-decoration: none;
     margin-right: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+/* Highlight on hover */
+.action-btn:hover {
+    background-color: #5a73d8; /* Medium blue on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Button hover effect */
+.action-btn.update:hover {
+    background-color: #ff9900; /* Highlighted orange color for Update button on hover */
+}
+
+.action-btn.report:hover {
+    background-color: #ff5050; /* Highlighted red color for Report button on hover */
+}
+
+/* Insert Button Styling */
+.insert-btn-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.insert-btn {
+    background-color: #0a1f44; /* Dark blue button color */
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
     transition: background-color 0.3s ease-in-out;
 }
 
-.action-btn:hover {
-    background-color: #5a73d8;
+.insert-btn:hover {
+    background-color: #5a73d8; /* Medium blue on hover */
 }
 
 /* Footer Section */
@@ -125,3 +163,22 @@ td {
     color: #0a1f44;
     border-top: 1px solid #e0e0e0;
 }
+
+.logout-btn {
+    background-color: #0a1f44; /* Same dark blue as Update and Report buttons */
+    color: white; /* White text color */
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+    margin-left: 20px; /* Separate the logout button from the rest of the nav links */
+}
+
+
+/* Hover effect for Logout Button */
+.logout-btn:hover {
+    background-color: #5a73d8; /* Same hover effect as Update and Report buttons */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
