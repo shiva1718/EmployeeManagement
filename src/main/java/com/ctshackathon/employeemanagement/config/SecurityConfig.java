@@ -42,7 +42,8 @@ public class SecurityConfig {
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/v1/auth/**", "/home").permitAll()
+                                .requestMatchers("/api/v1/auth/**", "/home",
+                                        "/images/**", "/css/**", "/js/**").permitAll()
 //                                .requestMatchers("/signup").permitAll()
 //                                .requestMatchers("/home").permitAll()
                                 .anyRequest().authenticated());
