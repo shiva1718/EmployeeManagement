@@ -1,0 +1,127 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #0a1f44;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header Section */
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: auto;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0a1f44;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #5a73d8;
+}
+
+/* Dashboard Section */
+.dashboard-section {
+    padding: 100px 20px; /* Extra padding at the top to account for the fixed header */
+    background-color: #f7f9fc;
+    min-height: 100vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.dashboard-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #0a1f44;
+}
+
+.employee-table {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+th {
+    background-color: #0a1f44;
+    color: white;
+}
+
+td {
+    background-color: #f7f9fc;
+}
+
+.action-btn {
+    background-color: #0a1f44;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.action-btn:hover {
+    background-color: #5a73d8;
+}
+
+/* Footer Section */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7f9fc;
+    color: #0a1f44;
+    border-top: 1px solid #e0e0e0;
+}
