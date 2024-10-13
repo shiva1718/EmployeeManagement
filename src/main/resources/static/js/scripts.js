@@ -87,6 +87,8 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
             body: JSON.stringify({ username, password }),
         });
 
+
+
         if (response.ok) {
             // If login is successful, get the JWT token from the response
             const data = await response.json();
@@ -97,6 +99,15 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
 
             // Redirect to the dashboard
             window.location.href = '/dashboard'; // Adjust this URL as needed
+
+            const userData = await fetch('http://localhost:8080/api/v1/employee', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+token
+                },
+                // body: JSON.stringify({ username, password }),
+            });
         } else {
             // If the login failed, show an error message
             const errorData = await response.json();
@@ -109,4 +120,9 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
 });
 
 
-document.getElementById('logout').click()
+
+
+
+
+// fetch user data
+
