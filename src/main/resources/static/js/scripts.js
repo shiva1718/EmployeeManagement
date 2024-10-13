@@ -64,9 +64,49 @@ window.addEventListener('click', (event) => {
 });
 
 // Handle form submission
-document.getElementById('loginForm').addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent default form submission
-    // You can add your login logic here
-    alert('Login functionality not implemented yet!'); // Placeholder alert
-    loginModal.style.display = 'none'; // Close modal after submission
+// document.getElementById('loginForm').addEventListener('submit', (event) => {
+//     event.preventDefault(); // Prevent default form submission
+//     // You can add your login logic here
+//     alert('Login functionality not implemented yet!'); // Placeholder alert
+//     loginModal.style.display = 'none'; // Close modal after submission
+// });
+
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent the form from submitting the default way
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        // Make a POST request to your login endpoint
+        const response = await fetch('http://localhost:8080/api/v1/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
+
+        if (response.ok) {
+            // If login is successful, get the JWT token from the response
+            const data = await response.json();
+            const token = data.token; // Adjust based on your API response structure
+
+            // Store the token in local storage (or session storage)
+            localStorage.setItem('jwtToken', token);
+
+            // Redirect to the dashboard
+            window.location.href = '/dashboard'; // Adjust this URL as needed
+        } else {
+            // If the login failed, show an error message
+            const errorData = await response.json();
+            alert(errorData.message || 'Login failed. Please check your credentials.'); // Adjust based on your API response structure
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred during login. Please try again later.');
+    }
 });
+
+
+document.getElementById('logout').click()
