@@ -293,6 +293,12 @@
             pincode: employeeData.pincode
         };
 
+        // Remove address fields from employee data
+        delete employeeData.street;
+        delete employeeData.city;
+        delete employeeData.state;
+        delete employeeData.pincode;
+
         const token = localStorage.getItem('jwtToken');
         if (!token) {
             alert('Authentication error. Please log in again.');
