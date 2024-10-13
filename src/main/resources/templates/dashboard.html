@@ -10,95 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Add styles for table and buttons */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-        }
-        th, td {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #0a1f44;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #eaeaea;
-        }
-        .logout-btn {
-            background-color: #0a1f44;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-left: 20px;
-            transition: background-color 0.3s;
-        }
-        .logout-btn:hover {
-            background-color: #5a73d8;
-        }
-        .insert-btn {
-            background-color: #0a1f44;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .insert-btn-container {
-            margin: 20px 0;
-            text-align: right;
-        }
-        .action-btn {
-            background-color: #0a1f44;
-            color: white;
-            padding: 8px 12px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-right: 5px;
-            cursor: pointer;
-        }
-        .action-btn:hover {
-            background-color: #5a73d8;
-        }
-        /* Style for pop-up form */
-        .popup-form {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border: 1px solid #ddd;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-        .popup-form label {
-            display: block;
-            margin-bottom: 8px;
-        }
-        .popup-form input, .popup-form select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 12px;
-        }
-        .popup-form .form-btn {
-            background-color: #0a1f44;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-        .popup-form .form-btn:hover {
-            background-color: #5a73d8;
-        }
+
     </style>
 </head>
 <body>
@@ -143,38 +55,78 @@
     </div>
 </main>
 
-<!-- Pop-up form for Insert/Update -->
+
 <div class="popup-form" id="popupForm">
     <form id="employeeForm">
-        <label for="empName">Name</label>
-        <input type="text" id="empName" name="name" required>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="empName">Name</label>
+                <input type="text" id="empName" name="name" required>
+            </div>
 
-        <label for="empDepartment">Department</label>
-        <select id="empDepartment" name="department" required>
-            <option value="Finance">Finance</option>
-            <option value="HR">HR</option>
-            <option value="IT">IT</option>
-            <!-- Add more departments as needed -->
-        </select>
+            <div class="form-group">
+                <label for="empDepartment">Department</label>
+                <select id="empDepartment" name="department" required>
+                    <option value="Finance">Finance</option>
+                    <option value="HR">HR</option>
+                    <option value="IT">IT</option>
+                    <!-- Add more departments as needed -->
+                </select>
+            </div>
 
-        <label for="empEmail">Email</label>
-        <input type="email" id="empEmail" name="email" required>
+            <div class="form-group">
+                <label for="empEmail">Email</label>
+                <input type="email" id="empEmail" name="email" required>
+            </div>
 
-        <label for="empPhone">Phone</label>
-        <input type="text" id="empPhone" name="phone" required>
+            <div class="form-group">
+                <label for="empPhone">Phone</label>
+                <input type="text" id="empPhone" name="phone" required>
+            </div>
 
-        <label for="empDesignation">Designation</label>
-        <input type="text" id="empDesignation" name="designation" required>
+            <div class="form-group">
+                <label for="empDesignation">Designation</label>
+                <input type="text" id="empDesignation" name="designation" required>
+            </div>
 
-        <label for="empSalary">Salary</label>
-        <input type="number" id="empSalary" name="salary" required>
+            <div class="form-group">
+                <label for="empSalary">Salary</label>
+                <input type="number" id="empSalary" name="salary" required>
+            </div>
 
-        <label for="empLocation">Location</label>
-        <input type="text" id="empLocation" name="location" required>
+            <div class="form-group">
+                <label for="empLocation">Location</label>
+                <input type="text" id="empLocation" name="location" required>
+            </div>
 
+            <!-- New Address Fields -->
+            <h3 style="grid-column: span 2;">Address Information</h3>
+
+            <div class="form-group">
+                <label for="empStreet">Street</label>
+                <input type="text" id="empStreet" name="street" required>
+            </div>
+
+            <div class="form-group">
+                <label for="empCity">City</label>
+                <input type="text" id="empCity" name="city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="empState">State</label>
+                <input type="text" id="empState" name="state" required>
+            </div>
+
+            <div class="form-group">
+                <label for="empPincode">Pincode</label>
+                <input type="text" id="empPincode" name="pincode" required>
+            </div>
+        </div>
         <button type="submit" class="form-btn">Save</button>
     </form>
 </div>
+
+
 
 <footer class="footer">
     <p>&copy; 2024 Cognizant. All rights reserved.</p>
@@ -253,9 +205,16 @@
             document.getElementById('empSalary').value = employee.salary;
             document.getElementById('empLocation').value = employee.location;
 
+            // Set address fields
+            document.getElementById('empStreet').value = employee.address.street;
+            document.getElementById('empCity').value = employee.address.city;
+            document.getElementById('empState').value = employee.address.state;
+            document.getElementById('empPincode').value = employee.address.pincode;
+
             document.getElementById('popupForm').style.display = 'block';
         }
     }
+
 
     async function deleteEmployee(id) {
         const token = localStorage.getItem('jwtToken');
@@ -326,6 +285,14 @@
             name: employeeData.department
         };
 
+        // Add address object
+        employeeData.address = {
+            street: employeeData.street,
+            city: employeeData.city,
+            state: employeeData.state,
+            pincode: employeeData.pincode
+        };
+
         const token = localStorage.getItem('jwtToken');
         if (!token) {
             alert('Authentication error. Please log in again.');
@@ -360,6 +327,7 @@
             alert('Failed to save employee data');
         }
     });
+
 
     // Logout Function
     function logout() {
