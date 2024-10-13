@@ -1,7 +1,11 @@
 package com.ctshackathon.employeemanagement.services;
 
+import com.ctshackathon.employeemanagement.dto.BasicEmployeeDTO;
+import com.ctshackathon.employeemanagement.dto.DepartmentDTO;
 import com.ctshackathon.employeemanagement.dto.EmployeeDTO;
+import com.ctshackathon.employeemanagement.entities.Department;
 import com.ctshackathon.employeemanagement.entities.Employee;
+import com.ctshackathon.employeemanagement.repo.DepartmentRepository;
 import com.ctshackathon.employeemanagement.repo.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +17,15 @@ import java.util.List;
 public class EmployeeService {
 
     @Autowired
-    EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private DepartmentRepository departmentRepository;
 
     public EmployeeDTO addEmployee(EmployeeDTO employee) {
         // Add employee to database
+        departmentRepository.findByName(employee.getDepartment().getName())
+                .ifPresent(department -> employee.setDepartment(new DepartmentDTO(department)));
         Employee saved = employeeRepository.save(new Employee(employee));
         System.out.println("Saved employee: " + saved);
         return new EmployeeDTO(saved);
@@ -60,4 +69,14 @@ public class EmployeeService {
         }
         return employeeDtos;
     }
+
+    public List<BasicEmployeeDTO> listAllEmployeesBasicDetails() {
+        List<EmployeeDTO> employees = listAllEmployees();
+        List<BasicEmployeeDTO> basicEmployeeDTOS = new ArrayList<>(employees.size());
+        for (EmployeeDTO employee : employees) {
+            basicEmployeeDTOS.add(new BasicEmployeeDTO(employee));
+        }
+        return basicEmployeeDTOS;
+    }
+
 }

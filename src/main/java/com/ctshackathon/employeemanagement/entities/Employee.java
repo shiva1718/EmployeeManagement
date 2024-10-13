@@ -21,7 +21,7 @@ public class Employee {
     @NotEmpty(message = "Name cannot be empty")
     private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     @NotNull
     private Department department;
